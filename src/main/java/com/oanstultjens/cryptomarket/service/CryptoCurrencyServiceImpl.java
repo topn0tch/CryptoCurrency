@@ -21,13 +21,17 @@ public class CryptoCurrencyServiceImpl implements CryptoCurrencyService {
 
                 });
         List<CryptoCurrency> cryptoCurrencies = cryptosResponse.getBody();
-
         return cryptoCurrencies;
     }
 
     @Override
     public CryptoCurrency findByName(String name) {
-        System.out.println("t");
+        List<CryptoCurrency> currencyList = findAll();
+        for (CryptoCurrency currency : currencyList) {
+            if (currency.getId().equals(name.toLowerCase()) ) {
+                return currency;
+            }
+        }
         return null;
     }
 }
