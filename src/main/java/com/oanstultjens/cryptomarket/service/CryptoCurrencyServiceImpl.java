@@ -27,7 +27,7 @@ public class CryptoCurrencyServiceImpl implements CryptoCurrencyService {
 
     @Override
     public CryptoCurrency findByName(String name) {
-        System.out.println("test");
+        System.out.println("t");
         return null;
     }
 }
