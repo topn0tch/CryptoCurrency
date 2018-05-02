@@ -19,6 +19,7 @@ public class IndexController {
     public String getIndex(Model model) {
         List<CryptoCurrency> cryptoCurrencyList = cryptoCurrencyService.findAll();
         model.addAttribute("allCryptoCurrencies", cryptoCurrencyList);
+        model.addAttribute("current_time", System.currentTimeMillis());
         return "index";
     }
 }

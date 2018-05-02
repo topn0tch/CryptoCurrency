@@ -20,7 +20,7 @@ public class CryptoCurrency {
     private Double percent_change_1h;
     private Double percent_change_24h;
     private Double percent_change_7d;
-    private Double last_updated;
+    private Long last_updated;
 
     public CryptoCurrency() {
     }
@@ -137,11 +137,11 @@ public class CryptoCurrency {
         this.percent_change_7d = percent_change_7d;
     }
 
-    public Double getLast_updated() {
+    public Long getLast_updated() {
         return last_updated;
     }
 
-    public void setLast_updated(Double last_updated) {
+    public void setLast_updated(Long last_updated) {
         this.last_updated = last_updated;
     }
 

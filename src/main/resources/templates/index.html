@@ -15,51 +15,62 @@
                 </div>
             </div>
 
-            <div th:each="currency : ${allCryptoCurrencies}" class="card shadow-sm p-3 mb-5 bg-white rounded" style="width: 17rem; display: inline-block">
-                <img class="card-img-top" th:src="@{'/images/icon/'+${currency.symbol}+'.png'}" alt="Crypto Currency Icon" onerror="this.src='images/icon/default.png'">
-                <div class="card-body">
-                    <div class="card-title">
-                        <div class="row">
-                            <div class="col">
-                                <h5 class="text-center"><span th:text="${currency.name}"/> <span style="font-size: 12px" th:text="'('+${currency.symbol}+')'"/></h5>
+            <div class="row">
+                <div class="col">
+                    <div th:each="currency : ${allCryptoCurrencies}" class="card shadow-sm p-3 mb-5 bg-white rounded" style="width: 17rem; display: inline-block">
+                        <img style="width: 150px" class="card-img-top mx-auto d-block" th:src="@{'/images/icon/'+${currency.symbol}+'.png'}" alt="Crypto Currency Icon" onerror="this.src='images/icon/default.png'">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="text-center"><span th:text="${currency.name}"/> <small class="text-muted"><span style="font-size: 12px" th:text="'('+${currency.symbol}+')'"/></small></h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="text-center">
+                                            <span class="badge badge-pill" th:classappend="${currency.percent_change_1h} >= 0 ? badge-success : badge-danger" th:text="${currency.percent_change_1h} + '%'"/>
+                                        </h5>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <h5 class="text-center">
-                                    <span class="badge badge-pill" th:classappend="${currency.percent_change_1h} >= 0 ? badge-success : badge-danger" th:text="${currency.percent_change_1h} + '%'"/>
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
 
-                    <p class="card-text">
-                    <div class="row">
-                        <div class="col">
-                            Price:
+                            <p class="card-text">
+                            <div class="row">
+                                <div class="col">
+                                    Price:
+                                </div>
+                                <div class="col">
+                                    $<span th:text="${currency.price_usd}"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    Last 24h:
+                                </div>
+                                <div class="col">
+                                    <span th:class="${currency.percent_change_24h}>=0 ? text-success : text-danger" th:text="${currency.percent_change_24h}+'%'"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    Last 7 days:
+                                </div>
+                                <div class="col">
+                                    <span th:class="${currency.percent_change_7d}>=0 ? text-success : text-danger" th:text="${currency.percent_change_7d}+'%'"/>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col">
-                            $<span th:text="${currency.price_usd}"></span>
+                        <!--Removed 'card-footer' -->
+                        <div class=" text-center">
+                            <hr/>
+                            <small class="text-muted">Last updated at <span th:text="${#dates.format(new java.util.Date(currency.last_updated*1000),'hh:mm:ss')}"/></small>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            Last 24h:
-                        </div>
-                        <div class="col">
-                            <span th:class="${currency.percent_change_24h}>=0 ? text-success : text-danger" th:text="${currency.percent_change_24h}+'%'"/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            Last 7 days:
-                        </div>
-                        <div class="col">
-                            <span th:class="${currency.percent_change_7d}>=0 ? text-success : text-danger" th:text="${currency.percent_change_7d}+'%'"/>
-                        </div>
+                        <!--<p class="card-text"><small class="text-muted">Last updated at <span th:text="${#dates.format(new java.util.Date(currency.last_updated*1000),'hh:mm:ss')}"/></small></p>-->
                     </div>
                 </div>
             </div>
+
 
         </div>
     </body>
