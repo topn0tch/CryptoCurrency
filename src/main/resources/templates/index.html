@@ -1,11 +1,66 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
+        <meta charset="UTF-8"/>
+        <title>Crypto Currency</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     </head>
 
     <body>
+        <div class="container">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4">Crypto Currencies</h1>
+                    <p class="lead">Just a little project made by Oan Stultjens, with SpringBoot, Bootstrap and consuming <a href="https://coinmarketcap.com/">coinmarketcap</a>'s API.</p>
+                </div>
+            </div>
 
+            <div th:each="currency : ${allCryptoCurrencies}" class="card shadow-sm p-3 mb-5 bg-white rounded" style="width: 17rem; display: inline-block">
+                <img class="card-img-top" th:src="@{'/images/icon/'+${currency.symbol}+'.png'}" alt="Crypto Currency Icon" onerror="this.src='images/icon/default.png'">
+                <div class="card-body">
+                    <div class="card-title">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="text-center"><span th:text="${currency.name}"/> <span style="font-size: 12px" th:text="'('+${currency.symbol}+')'"/></h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="text-center">
+                                    <span class="badge badge-pill" th:classappend="${currency.percent_change_1h} >= 0 ? badge-success : badge-danger" th:text="${currency.percent_change_1h} + '%'"/>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="card-text">
+                    <div class="row">
+                        <div class="col">
+                            Price:
+                        </div>
+                        <div class="col">
+                            $<span th:text="${currency.price_usd}"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Last 24h:
+                        </div>
+                        <div class="col">
+                            <span th:class="${currency.percent_change_24h}>=0 ? text-success : text-danger" th:text="${currency.percent_change_24h}+'%'"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Last 7 days:
+                        </div>
+                        <div class="col">
+                            <span th:class="${currency.percent_change_7d}>=0 ? text-success : text-danger" th:text="${currency.percent_change_7d}+'%'"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </body>
 </html>
