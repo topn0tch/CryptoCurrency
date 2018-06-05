@@ -17,9 +17,7 @@ public class CryptoCurrencyServiceImpl implements CryptoCurrencyService {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<List<CryptoCurrency>> cryptosResponse = restTemplate.exchange(
                 "https://api.coinmarketcap.com/v1/ticker/",
-                HttpMethod.GET, null, new ParameterizedTypeReference<List<CryptoCurrency>>() {
-
-                });
+                HttpMethod.GET, null, new ParameterizedTypeReference<List<CryptoCurrency>>() {});
         List<CryptoCurrency> cryptoCurrencies = cryptosResponse.getBody();
         return cryptoCurrencies;
     }
