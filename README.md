@@ -16,3 +16,5 @@ A simple web application to check the rate of the cryptocurrencies
 
 #### Project structure
 ![Project Structure](https://i.imgur.com/bh6yxJG.png)
+
+Travis CI in progress
