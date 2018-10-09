@@ -1,4 +1,5 @@
 # CryptoCurrency - Rates of the coins
+![Travis CI build](https://travis-ci.org/topn0tch/CryptoCurrency.svg?branch=master)
 ![SpringBoot version](https://img.shields.io/badge/SpringBoot-2.0-green.svg)
 ![Maven Central](https://img.shields.io/maven-central/v/org.apache.maven/apache-maven.svg)
 ![Apache2 License](https://img.shields.io/hexpm/l/plug.svg)
@@ -16,5 +17,3 @@ A simple web application to check the rate of the cryptocurrencies
 
 #### Project structure
 ![Project Structure](https://i.imgur.com/bh6yxJG.png)
-
-Travis CI in progress
