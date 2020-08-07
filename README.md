@@ -1,5 +1,5 @@
 # CryptoCurrency - Rates of the coins
-![Travis CI build](https://travis-ci.org/topn0tch/CryptoCurrency.svg?branch=master)
+![Java CI with Maven](https://github.com/topn0tch/CryptoCurrency/workflows/Java%20CI%20with%20Maven/badge.svg?branch=master)
 ![SpringBoot version](https://img.shields.io/badge/SpringBoot-2.0-green.svg)
 ![Maven Central](https://img.shields.io/maven-central/v/org.apache.maven/apache-maven.svg)
 ![Apache2 License](https://img.shields.io/hexpm/l/plug.svg)
